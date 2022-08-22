@@ -10,7 +10,7 @@ function App() {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9292//getstudents")
+    fetch("http://localhost:9292/")
       .then((response) => response.json())
       .then((data) => {
         setStudents(data);
