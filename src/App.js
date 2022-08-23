@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from "./Components/Home"
 
 import { Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
@@ -19,7 +19,9 @@ function App() {
 
   return (
     <div className="App">
-      
+      <Routes>
+        <Route path="/" element={<Home students={students}/> } />
+      </Routes>
     </div>
   );
 }
