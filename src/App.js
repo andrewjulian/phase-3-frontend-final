@@ -26,8 +26,8 @@ function App() {
 
   }, []);
 
-  function onStudentSelect(){
-    console.log("clicked!")
+  function onStudentSelect(event){
+    console.log(event.target.value)
   }
 
   return (
