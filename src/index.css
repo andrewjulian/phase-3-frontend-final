@@ -11,3 +11,78 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.projectCardStyle {
+  color: lightblue;
+  box-shadow: 2px 2px 4px #000000;
+  margin: auto;
+  width: 50%;
+  background: gray;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  margin-bottom: 5px;
+}
+
+.form {
+  color: lightblue;
+  box-shadow: 2px 2px 4px #000000;
+  margin: auto;
+  width: 50%;
+  background: gray;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  margin-bottom: 5px;
+}
+
+button {
+  color: black;
+  background-color: lightblue;
+  border-radius: 50px;
+}
+
+.smallProjectCard {
+  color: lightblue;
+  box-shadow: 2px 2px 4px #000000;
+  margin: auto;
+  width: 50%;
+  background: gray;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  margin-bottom: 5px;
+}
+
+.projects-nav {
+  display: inline-block;
+  padding: 12px;
+  margin: 0 6px 6px;
+  padding: 10px;
+  background: gray;
+  text-decoration: none;
+  color: lightblue;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.landing {
+  display: inline-block;
+  max-width: 75%;
+  padding: 10px;
+  margin: 10px;
+  border-style: groove;
+}
+
+.landingMain {
+  display: inline-block;
+  max-width: 75%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.navbar {
+  background: orange;
+  padding: 10px;
+  margin: 10px;
+}
