@@ -10,6 +10,9 @@ function App() {
 
   const [students, setStudents] = useState([]);
   const [assignments, setAssignments] = useState ([])
+  const [selectedStudent, setSelectedStudent] = useState("None")
+
+  console.log(selectedStudent)
 
   useEffect(() => {
     fetch("http://localhost:9292/allStudents")
@@ -27,14 +30,14 @@ function App() {
   }, []);
 
   function onStudentSelect(event){
-    console.log(event.target.value)
+    setSelectedStudent(event.target.value)
   }
 
   return (
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home students={students} onStudentSelect={onStudentSelect}/> } />
+        <Route path="/" element={<Home students={students} selectedStudent={selectedStudent} assignments={assignments} onStudentSelect={onStudentSelect}/> } />
       </Routes>
     </div>
   );
