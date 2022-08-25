@@ -7,21 +7,14 @@ const Assignments = () => {
     <div>
       <h1>Assignment View</h1>
 
-      <div>
-        <Link to="student-assignments" className="projects-nav">
-          Assignments By Student
-        </Link>
-        <Link to="class-assignments" className="projects-nav">
-          Assignments By Class
-        </Link>
-        <Link to="new-assignment" className="projects-nav">
-          Create New Assignment
-        </Link>
-
-      </div>
+      <nav>
+        <Link to="student-assignments" className="projects-nav">Assignments By Student</Link>
+        <Link to="class-assignments" className="projects-nav">Assignments By Class</Link>
+        <Link to="new-assignment" className="projects-nav">Create New Assignment</Link>
+      </nav>
 
       <Outlet />
-
+      
     </div>
   )
 }

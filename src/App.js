@@ -47,9 +47,10 @@ function App() {
         <Route index element={<Home />}/>
         <Route path="/home" element={<Home />}/>
         <Route path="/assignments" element={<Assignments />}>
-        
+          
           <Route path="student-assignments" element={
-            <StudentAssignments students={students} 
+            <StudentAssignments 
+              students={students} 
               selectedStudent={selectedStudent} 
               assignments={assignments} 
               onStudentSelect={onStudentSelect}
@@ -63,6 +64,17 @@ function App() {
               selectedClass={selectedClass}
             />
           }/>
+          
+          <Route path="new-assignment" element={
+            <StudentAssignments 
+              students={students} 
+              selectedStudent={selectedStudent} 
+              assignments={assignments} 
+              onStudentSelect={onStudentSelect}
+            />
+          }/>
+
+
         </Route>
         <Route path="/students" element={<Students />} /> 
         </Routes>
