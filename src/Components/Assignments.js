@@ -8,13 +8,13 @@ const Assignments = () => {
       <h1>Assignment View</h1>
 
       <nav>
-        <Link to="student-assignments" className="projects-nav">Assignments By Student</Link>
-        <Link to="class-assignments" className="projects-nav">Assignments By Class</Link>
-        <Link to="new-assignment" className="projects-nav">Create New Assignment</Link>
+        <Link to="/assignments/student" className="projects-nav">Assignments By Student</Link>
+        <Link to="/assignments/class" className="projects-nav">Assignments By Class</Link>
+        <Link to="/assignments/new" className="projects-nav">Create New Assignment</Link>
       </nav>
 
       <Outlet />
-      
+
     </div>
   )
 }

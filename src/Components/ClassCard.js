@@ -1,12 +1,11 @@
 import React from 'react'
 import "../index.css"
 
-const ClassCard = ({assignments}) => {
-  const {category} = assignments
+const ClassCard = ({assignment}) => {
+  const {category} = assignment
+  console.log(category)
   return (
-    <div>
        <option value={category}>{category}</option>
-    </div>
   )
 }
 
