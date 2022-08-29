@@ -1,6 +1,5 @@
 import React from "react";
 import AssignmentCard from "./AssignmentCard";
-import ClassCard from "./ClassCard";
 
 const ClassAssignments = ({assignments, onClassSelect, selectedClass}) => {
 
