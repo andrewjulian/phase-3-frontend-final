@@ -4,9 +4,17 @@ import ClassCard from "./ClassCard";
 
 const ClassAssignments = ({assignments, onClassSelect, selectedClass}) => {
 
-  const listOfClasses = assignments.map((assignment, id) => {
+  const fullListOfClasses = assignments.map((assignment, id) => {
     return (
-      <ClassCard assignment={assignment} key={id}/>
+     assignment.category
+    )
+  });
+
+  const apprevListOfClasses = [...new Set(fullListOfClasses)]
+
+  const listOfClasses = apprevListOfClasses.map((category) => {
+    return (
+      <option value={category}>{category}</option>
     )
   });
 

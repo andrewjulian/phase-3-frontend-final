@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const NewAssignment = ({addNewStudent}) => {
+const NewStudent = ({addNewStudent}) => {
 
   const [studentName, setStudentName] = useState("")
   const [studentGradeLevel, setStudentGradeLevel] = useState("")
@@ -53,4 +53,4 @@ const NewAssignment = ({addNewStudent}) => {
   )
 }
 
-export default NewAssignment
+export default NewStudent

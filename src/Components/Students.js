@@ -7,7 +7,7 @@ const Students = () => {
       <h1>Student View</h1>
 
       <nav>
-        <Link to="/students/new-student" className="projects-nav">Create New Assignment</Link>
+        <Link to="/students/new-student" className="projects-nav">Add New Student</Link>
       </nav>
 
       <Outlet />
