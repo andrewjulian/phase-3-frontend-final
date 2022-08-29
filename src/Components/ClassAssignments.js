@@ -3,7 +3,7 @@ import AssignmentCard from "./AssignmentCard";
 
 const ClassAssignments = ({assignments, onClassSelect, selectedClass, handleDeleteAssignment}) => {
 
-  const fullListOfClasses = assignments.map((assignment, id) => {
+  const fullListOfClasses = assignments.map((assignment) => {
     return (
      assignment.category
     )
@@ -11,9 +11,9 @@ const ClassAssignments = ({assignments, onClassSelect, selectedClass, handleDele
 
   const apprevListOfClasses = [...new Set(fullListOfClasses)]
 
-  const listOfClasses = apprevListOfClasses.map((category) => {
+  const listOfClasses = apprevListOfClasses.map((category, id) => {
     return (
-      <option value={category}>{category}</option>
+      <option key={id} value={category}>{category}</option>
     )
   });
 
