@@ -47,6 +47,12 @@ function App() {
     setSelectedClass(event.target.value)
   }
 
+  function handleDeleteAssignment(id) {
+    console.log("Click!")
+    const updatedAssignments = assignments.filter((assignment) => assignment.id !== id);
+    setAssignments(updatedAssignments);
+  }
+
   const linkStyles = {
     display: "inline-block",
     padding: "12px",
@@ -76,6 +82,7 @@ function App() {
               selectedStudent={selectedStudent} 
               assignments={assignments} 
               onStudentSelect={onStudentSelect}
+              handleDeleteAssignment={handleDeleteAssignment}
             />
           }/>
           <Route path="class" element={
@@ -83,6 +90,7 @@ function App() {
               assignments={assignments}
               onClassSelect={onClassSelect}
               selectedClass={selectedClass}
+              handleDeleteAssignment={handleDeleteAssignment}
             />
           }/>
           

@@ -1,8 +1,16 @@
 import React from 'react'
 
-const AssignmentCard = ({assignment}) => {
+const AssignmentCard = ({assignment, handleDeleteAssignment}) => {
 
-  const {title, category, description, possible_points, earned_points, due_date } = assignment
+  const {id, title, category, description, possible_points, earned_points, due_date } = assignment
+
+  function handleDeleteClick() {
+    fetch(`http://localhost:9292/assignments/${id}`, {
+      method: "DELETE",
+    });
+
+    handleDeleteAssignment(id);
+  }
 
   return (
     <div>
@@ -12,6 +20,7 @@ const AssignmentCard = ({assignment}) => {
       <p>Due Date: {due_date}</p>
       <p>Possible Points: {possible_points}</p>
       <p>Earned Points: {earned_points}</p>
+      <button onClick={handleDeleteClick}>Delete</button>
     </div>
   )
 }
