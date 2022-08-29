@@ -10,7 +10,6 @@ const Assignments = () => {
       <nav>
         <Link to="/assignments/student" className="projects-nav">Assignments By Student</Link>
         <Link to="/assignments/class" className="projects-nav">Assignments By Class</Link>
-        <Link to="/assignments/new" className="projects-nav">Create New Assignment</Link>
       </nav>
 
       <Outlet />

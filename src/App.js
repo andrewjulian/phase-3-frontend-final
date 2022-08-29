@@ -85,11 +85,13 @@ function App() {
               selectedClass={selectedClass}
             />
           }/>
-          <Route path="new" element={
+          
+        </Route>
+        <Route path="/students" element={<Students />}>
+        <Route path="new-student" element={
             <NewStudent addNewStudent={addNewStudent} />
           }/>
         </Route>
-        <Route path="/students" element={<Students />} /> 
         </Routes>
     </div>
   );
