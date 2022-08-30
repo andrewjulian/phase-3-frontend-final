@@ -16,12 +16,22 @@ code {
   color: lightblue;
   box-shadow: 2px 2px 4px #000000;
   margin: auto;
-  width: 50%;
+  width: 30%;
   background: gray;
   border-radius: 5px;
   padding-bottom: 20px;
   padding-top: 5px;
   margin-bottom: 5px;
+}
+
+.classCardStyle {
+  color: rgb(8, 68, 89);
+  box-shadow: 2px 2px 4px #000000;
+  margin: auto;
+  background: rgb(205, 205, 205);
+  width: 30%;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .form {

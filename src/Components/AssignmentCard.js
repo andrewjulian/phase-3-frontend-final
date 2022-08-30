@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import "../index.css";
 
 const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignment}) => {
 
@@ -13,8 +14,6 @@ const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignm
 
     handleDeleteAssignment(id);
   }
-
-  
 
   function handleScoreUpdate(e) {
     e.preventDefault();
@@ -40,7 +39,7 @@ const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignm
   }
 
   return (
-    <div>
+    <div className='classCardStyle'>
       <h3>{student.name}</h3>
       <h2>{title}</h2>
       <h3>{category}</h3>

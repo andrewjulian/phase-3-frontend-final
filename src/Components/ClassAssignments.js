@@ -35,6 +35,8 @@ const ClassAssignments = ({assignments, onClassSelect, selectedClass}) => {
         <option value="" disabled>Choose a Class...</option>
         {listOfClasses}
       </select>
+      <br/>
+      <br/>
       {displayClassAssignments}
     </div>
   )

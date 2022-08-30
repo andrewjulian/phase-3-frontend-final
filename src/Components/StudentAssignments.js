@@ -33,6 +33,8 @@ const studentAssignments = ({students, selectedStudent, onStudentSelect, assignm
         <option value="" disabled>Choose a Student...</option>
         {listOfStudents}
       </select>
+      <br/>
+      <br/>
       {displayStudentAssignments}
     </div>
   )

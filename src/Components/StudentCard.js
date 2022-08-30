@@ -5,7 +5,7 @@ const StudentCard = ({student}) => {
   const {name, id} = student
   
   return (
-     <option value={id}>{name}</option>
+     <option value={id} className="projectCardStyle">{name}</option>
   )
 }
 
