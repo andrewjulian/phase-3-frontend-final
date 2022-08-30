@@ -10,7 +10,6 @@ import Home from "./Components/Home"
 //import NewAssignment from './Components/NewStudent';
 import NewStudent from './Components/NewStudent';
 
-
 function App() {
 
   const [students, setStudents] = useState([]);
@@ -18,26 +17,23 @@ function App() {
   const [selectedStudent, setSelectedStudent] = useState("None")
   const [selectedClass, setSelectedClass] = useState("None")
 
-  function addNewStudent(newStudent){
-    console.log("Adding new student")
-    const updatedStudentList = [...students, newStudent];
-    setStudents(updatedStudentList)
-  }
-
   useEffect(() => {
     fetch("http://localhost:9292/allStudents")
       .then((response) => response.json())
       .then((data) => {
         setStudents(data);
       });
-
     fetch("http://localhost:9292/allAssignments")
       .then((response) => response.json())
       .then((data) => {
         setAssignments(data);
       });
-
   }, []);
+
+  function addNewStudent(newStudent){
+    const updatedStudentList = [...students, newStudent];
+    setStudents(updatedStudentList)
+  }
 
   function onStudentSelect(event){
     setSelectedStudent(event.target.value)
@@ -48,8 +44,20 @@ function App() {
   }
 
   function handleDeleteAssignment(id) {
-    console.log("Click!")
     const updatedAssignments = assignments.filter((assignment) => assignment.id !== id);
+    setAssignments(updatedAssignments);
+  }
+
+  function handleUpdateAssignment(updatedAssignment) {
+    const updatedAssignments = assignments.map((assignment) => {
+      if (assignment.id === updatedAssignment.id) {
+        return updatedAssignment;
+      } else {
+        return assignment;
+      }
+    });
+
+    console.log("updated assignments", updatedAssignments)
     setAssignments(updatedAssignments);
   }
 
@@ -66,6 +74,7 @@ function App() {
 
   return (
     <div className="App">
+
       <nav>
         <Link to="/home" style={linkStyles}>Home</Link>
         <Link to="/assignments" style={linkStyles}>Assignments</Link>
@@ -73,8 +82,10 @@ function App() {
       </nav>
 
       <Routes>
+
         <Route index element={<Home />}/>
         <Route path="home" element={<Home />}/>
+
         <Route path="assignments" element={<Assignments />}>
           <Route path="student" element={
             <StudentAssignments 
@@ -83,6 +94,7 @@ function App() {
               assignments={assignments} 
               onStudentSelect={onStudentSelect}
               handleDeleteAssignment={handleDeleteAssignment}
+              handleUpdateAssignment={handleUpdateAssignment}
             />
           }/>
           <Route path="class" element={
@@ -90,17 +102,17 @@ function App() {
               assignments={assignments}
               onClassSelect={onClassSelect}
               selectedClass={selectedClass}
-              handleDeleteAssignment={handleDeleteAssignment}
             />
           }/>
-          
         </Route>
+
         <Route path="/students" element={<Students />}>
-        <Route path="new-student" element={
+          <Route path="new-student" element={
             <NewStudent addNewStudent={addNewStudent} />
           }/>
         </Route>
-        </Routes>
+
+      </Routes>
     </div>
   );
 }

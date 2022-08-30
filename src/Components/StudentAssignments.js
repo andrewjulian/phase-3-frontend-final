@@ -2,7 +2,7 @@ import React from "react";
 import StudentCard from "./StudentCard";
 import AssignmentCard from "./AssignmentCard";
 
-const studentAssignments = ({students, selectedStudent, onStudentSelect, assignments, handleDeleteAssignment}) => {
+const studentAssignments = ({students, selectedStudent, onStudentSelect, assignments, handleDeleteAssignment, handleUpdateAssignment}) => {
   
   const listOfStudents = students.map((student, id) => {
     return (
@@ -17,7 +17,12 @@ const studentAssignments = ({students, selectedStudent, onStudentSelect, assignm
   const displayStudentAssignments = studentAssignments.map(
     (assignment, id) => {
       return (
-        <AssignmentCard assignment={assignment} key={id} handleDeleteAssignment={handleDeleteAssignment}  />
+        <AssignmentCard 
+          assignment={assignment} 
+          key={id} 
+          handleDeleteAssignment={handleDeleteAssignment}
+          handleUpdateAssignment={handleUpdateAssignment}
+        />
       );
     }
   );
