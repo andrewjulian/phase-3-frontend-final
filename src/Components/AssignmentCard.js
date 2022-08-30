@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignment}) => {
 
-  const {id, title, category, description, possible_points, earned_points, due_date} = assignment
+  const {id, title, category, description, possible_points, earned_points, due_date, student} = assignment
 
   const [updateEP, setUpdateEP] = useState(0)
 
@@ -39,6 +39,7 @@ const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignm
 
   return (
     <div>
+      <h3>{student.name}</h3>
       <h2>{title}</h2>
       <h3>{category}</h3>
       <p>{description}</p>

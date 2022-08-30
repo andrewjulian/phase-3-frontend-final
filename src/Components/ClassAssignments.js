@@ -1,5 +1,5 @@
 import React from "react";
-import AssignmentCard from "./AssignmentCard";
+import ClassAssignmentCard from "./ClassAssignmentCard";
 
 const ClassAssignments = ({assignments, onClassSelect, selectedClass}) => {
 
@@ -9,9 +9,9 @@ const ClassAssignments = ({assignments, onClassSelect, selectedClass}) => {
     )
   });
 
-  const apprevListOfClasses = [...new Set(fullListOfClasses)]
+  const abrevListOfClasses = [...new Set(fullListOfClasses)]
 
-  const listOfClasses = apprevListOfClasses.map((category, id) => {
+  const listOfClasses = abrevListOfClasses.map((category, id) => {
     return (
       <option key={id} value={category}>{category}</option>
     )
@@ -24,7 +24,7 @@ const ClassAssignments = ({assignments, onClassSelect, selectedClass}) => {
   const displayClassAssignments = classAssignments.map(
     (assignment, id) => {
       return (
-        <AssignmentCard assignment={assignment} key={id} />
+        <ClassAssignmentCard assignment={assignment} key={id} />
       );
     }
   );
