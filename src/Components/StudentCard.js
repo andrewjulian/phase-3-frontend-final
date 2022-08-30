@@ -2,10 +2,10 @@ import React from 'react'
 import "../index.css"
 
 const StudentCard = ({student}) => {
-  const {name} = student
+  const {name, id} = student
   
   return (
-     <option value={name}>{name}</option>
+     <option value={id}>{name}</option>
   )
 }
 

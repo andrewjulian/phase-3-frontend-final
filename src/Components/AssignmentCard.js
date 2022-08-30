@@ -14,6 +14,8 @@ const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignm
     handleDeleteAssignment(id);
   }
 
+  
+
   function handleScoreUpdate(e) {
     e.preventDefault();
     fetch(`http://localhost:9292/assignments/${id}`, {
@@ -51,7 +53,6 @@ const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignm
         <input type="submit" value="Add/Update Score"/>
       </form>
       <button onClick={handleDeleteClick}>Delete</button>
-      
     </div>
   )
 }

@@ -5,9 +5,9 @@ import React, { useEffect, useState } from "react";
 import StudentAssignments from './Components/StudentAssignments';
 import ClassAssignments from './Components/ClassAssignments';
 import Assignments from './Components/Assignments';
-import Students from './Components/Students';
 import Home from "./Components/Home"
-//import NewAssignment from './Components/NewStudent';
+import AddItems from "./Components/AddItems"
+import NewAssignment from "./Components/NewAssignment"
 import NewStudent from './Components/NewStudent';
 
 function App() {
@@ -33,6 +33,11 @@ function App() {
   function addNewStudent(newStudent){
     const updatedStudentList = [...students, newStudent];
     setStudents(updatedStudentList)
+  }
+
+  function addNewAssignment(newAssignment){
+    const updateAssignmentList = [...assignments, newAssignment]
+    setAssignments(updateAssignmentList)
   }
 
   function onStudentSelect(event){
@@ -78,12 +83,12 @@ function App() {
       <nav>
         <Link to="/home" style={linkStyles}>Home</Link>
         <Link to="/assignments" style={linkStyles}>Assignments</Link>
-        <Link to="/students" style={linkStyles}>Students</Link>
+        <Link to="/add" style={linkStyles}>Edit</Link>
       </nav>
 
       <Routes>
 
-        <Route index element={<Home />}/>
+        <Route index element={<Home handleDeleteAssignment={handleDeleteAssignment} />}/>
         <Route path="home" element={<Home />}/>
 
         <Route path="assignments" element={<Assignments />}>
@@ -106,9 +111,12 @@ function App() {
           }/>
         </Route>
 
-        <Route path="/students" element={<Students />}>
+        <Route path="/add" element={<AddItems />}>
           <Route path="new-student" element={
             <NewStudent addNewStudent={addNewStudent} />
+          }/>
+          <Route path="new-assignment" element={
+            <NewAssignment students={students} addNewAssignment={addNewAssignment} />
           }/>
         </Route>
 

@@ -11,7 +11,7 @@ const studentAssignments = ({students, selectedStudent, onStudentSelect, assignm
   });
 
   const studentAssignments = assignments.filter(
-    (assignment) => assignment.student.name == selectedStudent
+    (assignment) => assignment.student.id == selectedStudent
   );
 
   const displayStudentAssignments = studentAssignments.map(

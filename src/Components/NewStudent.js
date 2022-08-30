@@ -43,10 +43,14 @@ const NewStudent = ({addNewStudent}) => {
           Name:
           <input type="text" value={studentName} onChange={handleNameChange} />
         </label>
+        <br/>
+        <br/>
         <label>
           GradeLevel:
           <input type="integer" value={studentGradeLevel} onChange={handleGradeChange} />
         </label>
+        <br/>
+        <br/>
         <input type="submit" value="Submit" />
       </form>
     </div>
