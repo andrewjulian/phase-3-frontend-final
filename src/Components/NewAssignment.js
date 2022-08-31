@@ -1,10 +1,9 @@
-import { getAllByPlaceholderText } from '@testing-library/react'
 import React, {useState} from 'react'
 import StudentCard from './StudentCard'
 
 
 const NewAssignment = ({students, addNewAssignment}) => {
-  const [studentName, setStudentName] = useState("")
+  const [studentID, setStudentID] = useState("")
   const [title, setTitle] = useState("")
   const [category, setCategory] = useState("")
   const [description, setDescription] = useState("")
@@ -15,7 +14,7 @@ const NewAssignment = ({students, addNewAssignment}) => {
 
 
   function handleStudentNameChange(event){
-    setStudentName(event.target.value)
+    setStudentID(event.target.value)
   }
 
   function handleTitleChange(event){
@@ -32,11 +31,6 @@ const NewAssignment = ({students, addNewAssignment}) => {
 
   function handlePossiblePoints(event){
     setPossiblePoints(event.target.value)
-  }
-
-  function handleSubmit(event){
-    event.preventDefault()
-    console.log("Click!")
   }
 
   const listofStudentNames = students.map((student, id) => {
@@ -56,7 +50,7 @@ const NewAssignment = ({students, addNewAssignment}) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: studentName,
+        studentID: studentID,
         title: title,
         category: category,
         description: description,
@@ -77,7 +71,7 @@ const NewAssignment = ({students, addNewAssignment}) => {
     <div>
       <form onSubmit={handleSubmit} className="form">
         <select onChange={handleStudentNameChange} defaultValue="" >
-          <option value={studentName} disabled>Choose a Student...</option>
+          <option value={studentID} disabled>Choose a Student...</option>
           {listofStudentNames}
         </select>
         <br/>
@@ -90,7 +84,7 @@ const NewAssignment = ({students, addNewAssignment}) => {
         <br/>
         <label>
           Assignment Category:
-          <select value={category} onChange={handleCategoryChange}>
+          <select defaultValue="" onChange={handleCategoryChange}>
             <option value={category} disabled>Choose a Class...</option>
             <option value={"English"}>English</option>
             <option value={"Math"}>Math</option>
