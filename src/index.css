@@ -12,6 +12,22 @@ code {
     monospace;
 }
 
+.navbar {
+    display: inline-block;
+    padding: 12px;
+    margin: 10px 6px 6px;
+    background: lightblue;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.navbar:hover{
+  background:rgb(8, 68, 89);
+  color: white;
+}
+
 .projectCardStyle {
   color: lightblue;
   box-shadow: 2px 2px 4px #000000;
@@ -24,11 +40,24 @@ code {
   margin-bottom: 5px;
 }
 
+.homePageCard {
+  color: black;
+  box-shadow: 2px 2px 4px #000000;
+  margin: auto;
+  width: 50%;
+  background: lightblue;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-bottom: 5px;
+}
+
 .classCardStyle {
   color: rgb(8, 68, 89);
   box-shadow: 2px 2px 4px #000000;
   margin: auto;
-  background: rgb(205, 205, 205);
   width: 30%;
   padding: 10px;
   margin-bottom: 10px;
@@ -87,12 +116,6 @@ button {
 .landingMain {
   display: inline-block;
   max-width: 75%;
-  padding: 10px;
-  margin: 10px;
-}
-
-.navbar {
-  background: orange;
   padding: 10px;
   margin: 10px;
 }

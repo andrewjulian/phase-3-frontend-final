@@ -44,7 +44,7 @@ const NewAssignment = ({students, addNewAssignment}) => {
 
     console.log("submitted")
 
-    fetch("http://localhost:9292/new-assignment", {
+    fetch("http://localhost:9292/assignments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,6 +64,12 @@ const NewAssignment = ({students, addNewAssignment}) => {
     .then((data) => {
       addNewAssignment(data);
     });
+
+    setStudentID("")
+    setTitle("")
+    setCategory("")
+    setDescription("")
+    setPossiblePoints(0)
 
   }
 

@@ -4,7 +4,6 @@ import "../index.css";
 
 function NavBar() {
   
-
   return (
     <div>
       <NavLink to="/home" style={linkStyles}>

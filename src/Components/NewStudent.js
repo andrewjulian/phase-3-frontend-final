@@ -16,7 +16,7 @@ const NewStudent = ({addNewStudent}) => {
   function handleSubmit(event){
     event.preventDefault();
 
-    fetch("http://localhost:9292/new-student", {
+    fetch("http://localhost:9292/students", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

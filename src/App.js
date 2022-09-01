@@ -18,12 +18,12 @@ function App() {
   const [selectedClass, setSelectedClass] = useState("None")
 
   useEffect(() => {
-    fetch("http://localhost:9292/allStudents")
+    fetch("http://localhost:9292/students")
       .then((response) => response.json())
       .then((data) => {
         setStudents(data);
       });
-    fetch("http://localhost:9292/allAssignments")
+    fetch("http://localhost:9292/assignments")
       .then((response) => response.json())
       .then((data) => {
         setAssignments(data);
@@ -66,24 +66,13 @@ function App() {
     setAssignments(updatedAssignments);
   }
 
-  const linkStyles = {
-    display: "inline-block",
-    padding: "12px",
-    margin: "10px 6px 6px",
-    background: "lightblue",
-    textDecoration: "none",
-    color: "black",
-    textAlign: "center",
-    borderRadius: "10px",
-  };
-
   return (
     <div className="App">
 
       <nav>
-        <Link to="/home" style={linkStyles}>Home</Link>
-        <Link to="/assignments" style={linkStyles}>Assignments</Link>
-        <Link to="/add" style={linkStyles}>Edit</Link>
+        <Link to="/home" className="navbar">Home</Link>
+        <Link to="/assignments" className="navbar">Assignments</Link>
+        <Link to="/add" className="navbar">Edit</Link>
       </nav>
 
       <Routes>
