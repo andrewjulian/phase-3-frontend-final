@@ -51,6 +51,7 @@ const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignm
         <input type="integer" value={updateEP} onChange={updateScore}/>
         <input type="submit" value="Add/Update Score"/>
       </form>
+      <br/>
       <button onClick={handleDeleteClick}>Delete</button>
     </div>
   )
