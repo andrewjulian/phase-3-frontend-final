@@ -21,13 +21,14 @@ function App() {
     fetch("http://localhost:9292/students")
       .then((response) => response.json())
       .then((data) => {
+        console.log('original student data', data)
         setStudents(data);
       });
-    fetch("http://localhost:9292/assignments")
+    /* fetch("http://localhost:9292/assignments")
       .then((response) => response.json())
       .then((data) => {
         setAssignments(data);
-      });
+      }); */
   }, []);
 
   function addNewStudent(newStudent){
@@ -65,6 +66,7 @@ function App() {
     console.log("updated assignments", updatedAssignments)
     setAssignments(updatedAssignments);
   }
+  
 
   return (
     <div className="App">
@@ -85,7 +87,7 @@ function App() {
             <StudentAssignments 
               students={students} 
               selectedStudent={selectedStudent} 
-              assignments={assignments} 
+              //assignments={assignments} 
               onStudentSelect={onStudentSelect}
               handleDeleteAssignment={handleDeleteAssignment}
               handleUpdateAssignment={handleUpdateAssignment}

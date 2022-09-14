@@ -40,7 +40,6 @@ const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignm
 
   return (
     <div className='classCardStyle'>
-      <h3>{student.name}</h3>
       <h2>{title}</h2>
       <h3>{category}</h3>
       <p>{description}</p>

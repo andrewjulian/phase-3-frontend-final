@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import StudentCard from './StudentCard'
 
-
 const NewAssignment = ({students, addNewAssignment}) => {
   const [studentID, setStudentID] = useState("")
   const [title, setTitle] = useState("")
