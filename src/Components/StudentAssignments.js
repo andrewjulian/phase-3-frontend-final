@@ -2,7 +2,7 @@ import React from "react";
 import StudentCard from "./StudentCard";
 import AssignmentCard from "./AssignmentCard";
 
-const studentAssignments = ({students, selectedStudent, onStudentSelect, handleDeleteAssignment, handleUpdateAssignment}) => {
+const studentAssignments = ({students, fullAssignments, selectedStudent, onStudentSelect, handleDeleteAssignment, handleUpdateAssignment}) => {
   
   const listOfStudents = students.map((student, id) => {
     return (
@@ -10,14 +10,23 @@ const studentAssignments = ({students, selectedStudent, onStudentSelect, handleD
     )
   });
 
-  const selectedStudentObj = students.filter(
-    (student) => student.id == selectedStudent
-  );
+  let displayStudentAssignments;
 
-  console.log("student assignments", selectedStudentObj)
+  if(selectedStudent == "None"){
+    displayStudentAssignments = fullAssignments.map((assignment,id) => {return (
+      <AssignmentCard 
+        assignment={assignment} 
+        key={id} 
+        handleDeleteAssignment={handleDeleteAssignment}
+        handleUpdateAssignment={handleUpdateAssignment}
+      />
+    )})
+  } else {
+    const selectedStudentObj = students.find(
+      (student) => student.id == selectedStudent
+    );
 
-  const displayStudentAssignments = selectedStudentObj.map((student) => 
-    student.assignments.map((assignment, id) => {
+    displayStudentAssignments = selectedStudentObj.assignments.map((assignment, id) => {
       return (
         <AssignmentCard 
           assignment={assignment} 
@@ -25,9 +34,10 @@ const studentAssignments = ({students, selectedStudent, onStudentSelect, handleD
           handleDeleteAssignment={handleDeleteAssignment}
           handleUpdateAssignment={handleUpdateAssignment}
         />
-      );
-    })
-  );
+      )});
+
+  }
+  
 
   return (
     <div>

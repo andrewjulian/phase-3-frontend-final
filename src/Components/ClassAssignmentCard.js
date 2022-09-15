@@ -1,13 +1,15 @@
 import React from 'react'
 import "../index.css";
 
-const ClassAssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignment}) => {
+const ClassAssignmentCard = ({assignment}) => {
 
-  const {title, description, possible_points, due_date, student} = assignment
+  console.log('assignment', assignment)
+
+  const {title, description, due_date, possible_points} = assignment
 
   return (
     <div className='classCardStyle'>
-      <h3>{title} - {student.name}</h3>
+      <h3>{title}</h3>
       <p>{description}</p>
       <p>Due Date: {due_date}</p>
       <p>Possible Points: {possible_points}</p>

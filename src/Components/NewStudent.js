@@ -29,6 +29,7 @@ const NewStudent = ({addNewStudent}) => {
 
     .then((r) => r.json())
     .then((data) => {
+      console.log('new student', data)
       addNewStudent(data);
     });
 

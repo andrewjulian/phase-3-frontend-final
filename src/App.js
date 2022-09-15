@@ -15,38 +15,35 @@ function App() {
   const [students, setStudents] = useState([]);
   const [assignments, setAssignments] = useState ([])
   const [selectedStudent, setSelectedStudent] = useState("None")
-  const [selectedClass, setSelectedClass] = useState("None")
 
   useEffect(() => {
     fetch("http://localhost:9292/students")
       .then((response) => response.json())
       .then((data) => {
-        console.log('original student data', data)
         setStudents(data);
       });
-    /* fetch("http://localhost:9292/assignments")
+    
+    fetch("http://localhost:9292/assignments")
       .then((response) => response.json())
       .then((data) => {
         setAssignments(data);
-      }); */
+      });
+
   }, []);
+
+  function onStudentSelect(event){
+    setSelectedStudent(event.target.value)
+  }
 
   function addNewStudent(newStudent){
     const updatedStudentList = [...students, newStudent];
     setStudents(updatedStudentList)
   }
 
+  //----------- {…student, assignments: […student.assignments, assignment]} ------
   function addNewAssignment(newAssignment){
-    const updateAssignmentList = [...assignments, newAssignment]
-    setAssignments(updateAssignmentList)
-  }
-
-  function onStudentSelect(event){
-    setSelectedStudent(event.target.value)
-  }
-
-  function onClassSelect(event){
-    setSelectedClass(event.target.value)
+    const updateAssignmentList = {...students, assignments: [...students.assignments, newAssignment]}
+    setStudents(updateAssignmentList)
   }
 
   function handleDeleteAssignment(id) {
@@ -62,11 +59,10 @@ function App() {
         return assignment;
       }
     });
-
-    console.log("updated assignments", updatedAssignments)
     setAssignments(updatedAssignments);
   }
   
+  //----------------
 
   return (
     <div className="App">
@@ -79,27 +75,21 @@ function App() {
 
       <Routes>
 
-        <Route index element={<Home handleDeleteAssignment={handleDeleteAssignment} />}/>
+        <Route index element={<Home />}/>
         <Route path="home" element={<Home />}/>
 
         <Route path="assignments" element={<Assignments />}>
           <Route path="student" element={
             <StudentAssignments 
               students={students} 
+              fullAssignments={assignments}
               selectedStudent={selectedStudent} 
-              //assignments={assignments} 
               onStudentSelect={onStudentSelect}
               handleDeleteAssignment={handleDeleteAssignment}
               handleUpdateAssignment={handleUpdateAssignment}
             />
           }/>
-          <Route path="class" element={
-            <ClassAssignments 
-              assignments={assignments}
-              onClassSelect={onClassSelect}
-              selectedClass={selectedClass}
-            />
-          }/>
+
         </Route>
 
         <Route path="/add" element={<AddItems />}>

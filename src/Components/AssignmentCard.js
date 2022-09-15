@@ -3,7 +3,7 @@ import "../index.css";
 
 const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignment}) => {
 
-  const {id, title, category, description, possible_points, earned_points, due_date, student} = assignment
+  const {id, title, category, description, possible_points, earned_points, due_date} = assignment
 
   const [updateEP, setUpdateEP] = useState(0)
 
@@ -12,7 +12,9 @@ const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignm
       method: "DELETE",
     });
 
+    console.log('delete id', id)
     handleDeleteAssignment(id);
+
   }
 
   function handleScoreUpdate(e) {

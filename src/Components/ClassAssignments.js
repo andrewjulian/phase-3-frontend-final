@@ -1,33 +1,31 @@
 import React from "react";
 import ClassAssignmentCard from "./ClassAssignmentCard";
 
-const ClassAssignments = ({assignments, onClassSelect, selectedClass}) => {
+const ClassAssignments = ({students, onClassSelect, selectedClass}) => {
 
-  const fullListOfClasses = assignments.map((assignment) => {
-    return (
-     assignment.category
-    )
-  });
+const fullListOfClasses = students.map((student) => student.assignments.map((assignment) => {
+  return (
+    assignment.category
+  )}));
 
-  const abrevListOfClasses = [...new Set(fullListOfClasses)]
-
+  const removeEmpty = fullListOfClasses.filter(content => content.length)
+  const abrevListOfClasses = [...new Set(removeEmpty)]
   const listOfClasses = abrevListOfClasses.map((category, id) => {
     return (
       <option key={id} value={category}>{category}</option>
     )
   });
 
-  const classAssignments = assignments.filter(
-    (assignment) => assignment.category == selectedClass
-  );
 
-  const displayClassAssignments = classAssignments.map(
+  const classAssignments = students.map((student) => student.assignments.filter((assignment) => assignment.category == selectedClass));
+  const removeEmptyAssignments = classAssignments.filter(content=>content.length)
+  const displayClassAssignments = removeEmptyAssignments.map((assignments) => assignments.map(
     (assignment, id) => {
       return (
         <ClassAssignmentCard assignment={assignment} key={id} />
       );
     }
-  );
+  ));
   
   return (
     <div>
