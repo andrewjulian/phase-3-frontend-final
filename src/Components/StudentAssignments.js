@@ -1,6 +1,7 @@
 import React from "react";
 import StudentCard from "./StudentCard";
 import AssignmentCard from "./AssignmentCard";
+import ClassAssignmentCard from "./ClassAssignmentCard";
 
 const studentAssignments = ({students, fullAssignments, selectedStudent, onStudentSelect, handleDeleteAssignment, handleUpdateAssignment}) => {
   
@@ -14,13 +15,11 @@ const studentAssignments = ({students, fullAssignments, selectedStudent, onStude
 
   if(selectedStudent == "None"){
     displayStudentAssignments = fullAssignments.map((assignment,id) => {return (
-      <AssignmentCard 
+      <ClassAssignmentCard 
         assignment={assignment} 
         key={id} 
-        handleDeleteAssignment={handleDeleteAssignment}
-        handleUpdateAssignment={handleUpdateAssignment}
       />
-    )})
+    )});
   } else {
     const selectedStudentObj = students.find(
       (student) => student.id == selectedStudent

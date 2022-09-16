@@ -10,11 +10,10 @@ const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignm
   function handleDeleteClick() {
     fetch(`http://localhost:9292/assignments/${id}`, {
       method: "DELETE",
-    });
+    })
 
-    console.log('delete id', id)
-    handleDeleteAssignment(id);
-
+    .then((r) => r.json())
+    .then((data) => handleDeleteAssignment(data));
   }
 
   function handleScoreUpdate(e) {
@@ -35,7 +34,6 @@ const AssignmentCard = ({assignment, handleDeleteAssignment, handleUpdateAssignm
   }
 
   function updateScore(event){
-    console.log("update score!")
     event.preventDefault()
     setUpdateEP(event.target.value)
   }

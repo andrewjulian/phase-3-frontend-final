@@ -61,7 +61,6 @@ const NewAssignment = ({students, addNewAssignment}) => {
 
     .then((r) => r.json())
     .then((data) => {
-      console.log("newassignmentdata", data)
       addNewAssignment(data);
     });
 

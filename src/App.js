@@ -41,28 +41,32 @@ function App() {
   }
 
   //----------- {…student, assignments: […student.assignments, assignment]} ------
+
   function addNewAssignment(newAssignment){
-    const updateAssignmentList = {...students, assignments: [...students.assignments, newAssignment]}
-    setStudents(updateAssignmentList)
-  }
-
-  function handleDeleteAssignment(id) {
-    const updatedAssignments = assignments.filter((assignment) => assignment.id !== id);
-    setAssignments(updatedAssignments);
-  }
-
-  function handleUpdateAssignment(updatedAssignment) {
-    const updatedAssignments = assignments.map((assignment) => {
-      if (assignment.id === updatedAssignment.id) {
-        return updatedAssignment;
-      } else {
-        return assignment;
-      }
-    });
-    setAssignments(updatedAssignments);
-  }
   
-  //----------------
+    const updateAssignmentList = [...assignments, newAssignment]
+    setAssignments(updateAssignmentList)
+
+    const newStudentAssignmentObj = students.find(
+      (student) => student.id == newAssignment.student_id
+    );
+    
+    const updateStudentAssignments = {...newStudentAssignmentObj, assignments: [...newStudentAssignmentObj.assignments, newAssignment]}
+    const updateAllStudents = students.map(student => student.id == newAssignment.student_id ? updateStudentAssignments : student)
+ 
+    setStudents(updateAllStudents)
+  }
+
+  function handleDeleteAssignment(updatedStudentAssignments) {
+    const updateAllAssignments = students.map((student) => student.id == updatedStudentAssignments.id ? updatedStudentAssignments : student) 
+    setStudents(updateAllAssignments);
+  }
+
+
+  function handleUpdateAssignment(updatedStudent) {
+    const updateAll = students.map((student) => student.id == updatedStudent.id ? updatedStudent : student)
+    setStudents(updateAll); 
+  }
 
   return (
     <div className="App">

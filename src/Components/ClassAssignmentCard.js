@@ -2,9 +2,6 @@ import React from 'react'
 import "../index.css";
 
 const ClassAssignmentCard = ({assignment}) => {
-
-  console.log('assignment', assignment)
-
   const {title, description, due_date, possible_points} = assignment
 
   return (
